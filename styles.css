@@ -1,0 +1,156 @@
+#nsd-button {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 999999;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #e50914;
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s, background 0.2s;
+  font-family: -apple-system, system-ui, sans-serif;
+  user-select: none;
+}
+
+#nsd-button:hover {
+  transform: scale(1.1);
+  background: #ff0a16;
+}
+
+#nsd-button.nsd-has-subs::after {
+  content: attr(data-count);
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #46d369;
+  color: #fff;
+  font-size: 11px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#nsd-panel {
+  position: fixed;
+  bottom: 140px;
+  right: 20px;
+  z-index: 999999;
+  width: 300px;
+  background: #141414;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #fff;
+  font-family: -apple-system, system-ui, sans-serif;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  display: none;
+  overflow: hidden;
+}
+
+#nsd-panel.nsd-visible {
+  display: block;
+}
+
+.nsd-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: #1a1a1a;
+  border-bottom: 1px solid #333;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.nsd-close {
+  cursor: pointer;
+  font-size: 20px;
+  opacity: 0.6;
+  line-height: 1;
+}
+
+.nsd-close:hover {
+  opacity: 1;
+}
+
+.nsd-list {
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 4px 8px;
+}
+
+.nsd-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.nsd-item:hover {
+  background: #222;
+}
+
+.nsd-lang {
+  font-weight: 600;
+  min-width: 50px;
+  font-size: 13px;
+}
+
+.nsd-size {
+  color: #777;
+  font-size: 12px;
+  flex: 1;
+}
+
+.nsd-btn {
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.nsd-btn-srt {
+  background: #e50914;
+}
+
+.nsd-btn-srt:hover {
+  background: #ff0a16;
+}
+
+.nsd-btn-raw {
+  background: #444;
+}
+
+.nsd-btn-raw:hover {
+  background: #555;
+}
+
+.nsd-empty {
+  padding: 24px 16px;
+  text-align: center;
+  color: #777;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.nsd-footer {
+  padding: 8px 16px;
+  text-align: center;
+  color: #555;
+  font-size: 11px;
+  border-top: 1px solid #222;
+}
