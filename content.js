@@ -135,7 +135,17 @@
       document.querySelector('.video-title h4') ||
       document.querySelector('.ellipsize-text');
     let title = el?.textContent?.trim() || 'netflix-subtitle';
-    return title.replace(/[/\\?%*:|"<>]/g, '-').substring(0, 100);
+
+    // Remove underscores between Japanese characters (Netflix DOM artifact)
+    const jp = '\\u3000-\\u303F\\u3040-\\u309F\\u30A0-\\u30FF\\u4E00-\\u9FFF\\uFF00-\\uFFEF';
+    title = title.replace(new RegExp(`([${jp}])_([${jp}])`, 'g'), '$1$2');
+    // Run twice for overlapping matches (ア_イ_ウ -> アイ_ウ -> アイウ)
+    title = title.replace(new RegExp(`([${jp}])_([${jp}])`, 'g'), '$1$2');
+
+    // Clean up filesystem-unsafe chars and extra whitespace
+    title = title.replace(/[/\\?%*:|"<>]/g, '-');
+    title = title.replace(/\s+/g, ' ').trim();
+    return title.substring(0, 100);
   }
 
   // Create button on Netflix pages
